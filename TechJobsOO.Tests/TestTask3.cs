@@ -107,7 +107,7 @@ namespace TechJobsOO.Tests
 
             //verify setup
             Assert.AreNotEqual(mName, mGBD, "Equals method doesn't belong to Job Class");
-            Assert.AreEqual(lviCount, 2, "Equals method doesn't have correct number of local variables");
+            Assert.AreEqual(lviCount, 3, "Equals method doesn't have correct number of local variables");
 
             //verify output
             Assert.AreEqual(testJob1, testJob1, "Objects with same ID are equal");
