@@ -1,4 +1,6 @@
 ﻿
+using TechJobsOOAutoGraded6;
+
 namespace TechJobs.Tests
 {
     [TestClass]
@@ -72,16 +74,47 @@ namespace TechJobs.Tests
         [TestMethod]
         public void TestToStringStartsAndEndsWithNewLine()
         {
-            // Arrange
+            Job job = new Job();
+            string testString = job.ToString();
+            Assert.IsTrue(testString.StartsWith("\n"));
+            Assert.IsTrue(testString.EndsWith("\n"));
+        }
+
+        [TestMethod]
+        public void TestToStringContainsCorrectLabelsAndData()
+        {
             Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-            // Act
-            string jobString = job.ToString();
+            string testString = job.ToString();
 
-            // Assert
-            Assert.IsTrue(jobString.StartsWith("\n"));
-            Assert.IsTrue(jobString.EndsWith("\n"));
+            Assert.IsTrue(testString.Contains($"ID: {job.Id}\n"));
+            Assert.IsTrue(testString.Contains($"Name: {job.Name}\n"));
+            Assert.IsTrue(testString.Contains($"Employer: {job.EmployerName}\n"));
+            Assert.IsTrue(testString.Contains($"Location: {job.EmployerLocation}\n"));
+            Assert.IsTrue(testString.Contains($"Position Type: {job.JobType}\n"));
+            Assert.IsTrue(testString.Contains($"Core Competency: {job.JobCoreCompetency}\n"));
         }
+
+            [TestMethod]
+        public void TestToStringHandlesEmptyField()
+        {
+            Job job = new Job();
+            job.Name = "Software Developer";
+            job.EmployerName = new Employer("");
+            job.EmployerLocation = new Location("");
+            job.JobType = new PositionType("");
+            job.JobCoreCompetency = new CoreCompetency("");
+
+            string output = job.ToString();
+
+            Assert.IsTrue(output.Contains($"ID: {job.Id}\n"));
+            Assert.IsTrue(output.Contains($"Name: {job.Name}\n"));
+            Assert.IsTrue(output.Contains($"Employer: Data not available\n"));
+            Assert.IsTrue(output.Contains($"Location: Data not available\n"));
+            Assert.IsTrue(output.Contains($"Position Type: Data not available\n"));
+            Assert.IsTrue(output.Contains($"Core Competency: Data not available\n"));
+        }
+
 
     }
 }
