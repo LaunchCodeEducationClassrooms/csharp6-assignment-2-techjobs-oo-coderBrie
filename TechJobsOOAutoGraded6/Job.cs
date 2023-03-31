@@ -51,6 +51,11 @@ namespace TechJobsOOAutoGraded6
             return Id.GetHashCode();
         }
 
+
+        public override string ToString()
+        {
+            return $"\nID: {Id}\nName: {Name}\nEmployer: {EmployerName.Value}\nLocation: {EmployerLocation.Value}\nPosition Type: {JobType.Value}\nCore Competency: {JobCoreCompetency.Value}\n";
+        }
     }
 }
 
