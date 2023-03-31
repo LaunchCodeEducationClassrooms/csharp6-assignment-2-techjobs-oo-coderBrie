@@ -69,6 +69,20 @@ namespace TechJobs.Tests
             Assert.AreEqual(expectedId, actualId);
         }
 
+        [TestMethod]
+        public void TestToStringStartsAndEndsWithNewLine()
+        {
+            // Arrange
+            Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+            // Act
+            string jobString = job.ToString();
+
+            // Assert
+            Assert.IsTrue(jobString.StartsWith("\n"));
+            Assert.IsTrue(jobString.EndsWith("\n"));
+        }
+
     }
 }
 
