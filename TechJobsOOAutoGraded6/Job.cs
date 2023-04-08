@@ -3,7 +3,7 @@ namespace TechJobsOOAutoGraded6
 {
 	public class Job
 	{
-        /*
+        ///*
 
             public int Id { get; }
             private static int nextId = 1;
@@ -15,13 +15,56 @@ namespace TechJobsOOAutoGraded6
 
             // TODO: Task 3: Add the two necessary constructors.
 
-            // TODO: Task 3: Generate Equals() and GetHashCode() methods.  
+         public Job()
+        {
+            Id = nextId;
+            nextId++;
+        }
 
-            // TODO: Task 5: Generate custom ToString() method.
-                //Until you create this method, you will not be able to print a job to the console.
+        
+        public Job(string name, Employer employerName, Location employerLocation, PositionType jobType, CoreCompetency jobCoreCompetency) : this()
+        {
+            Name = name;
+            EmployerName = employerName;
+            EmployerLocation = employerLocation;
+            JobType = jobType;
+            JobCoreCompetency = jobCoreCompetency;
+        }
+
+        // TODO: Task 3: Generate Equals() and GetHashCode() methods.
+        //
+        public override bool Equals(object obj)
+        {
+            if (obj == null || !obj.GetType().Equals(this.GetType()))
+            {
+                return false;
+            }
+            Job otherJob = (Job)obj;
+            return Id == otherJob.Id;
+        }
+
+        // TODO: Task 5: Generate custom ToString() method.
+        //Until you create this method, you will not be able to print a job to the console.
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
 
 
-        */
+
+        public override string ToString()
+        {
+            string idString = $"\nID: {Id}\n";
+            string nameString = $"\nName: {Name}\n";
+            string employerString = $"\nEmployer: {(EmployerName?.Value == "" ? "Data not available" : EmployerName?.Value)}\n";
+            string locationString = $"\nLocation: {(EmployerLocation?.Value == "" ? "Data not available" : EmployerLocation?.Value)}\n";
+            string positionString = $"\nPosition Type: {(JobType?.Value == "" ? "Data not available" : JobType?.Value)}\n";
+            string coreString = $"\nCore Competency: {(JobCoreCompetency?.Value == "" ? "Data not available" : JobCoreCompetency?.Value)}\n";
+
+            return idString + nameString + employerString + locationString + positionString + coreString;
+        }
+
     }
 }
 

@@ -6,7 +6,7 @@ namespace TechJobsOO.Tests
 	{
         //Testing the new Job class.  Tests are numbered.
 
-        /* TODO: Task 3: Remove this line to uncomment the tests
+        ///* TODO: Task 3: Remove this line to uncomment the tests
           
      
         [TestMethod]    //1
@@ -107,7 +107,7 @@ namespace TechJobsOO.Tests
 
             //verify setup
             Assert.AreNotEqual(mName, mGBD, "Equals method doesn't belong to Job Class");
-            Assert.AreEqual(lviCount, 2, "Equals method doesn't have correct number of local variables");
+            Assert.AreEqual(lviCount, 3, "Equals method doesn't have correct number of local variables");
 
             //verify output
             Assert.AreEqual(testJob1, testJob1, "Objects with same ID are equal");
@@ -132,7 +132,7 @@ namespace TechJobsOO.Tests
             Assert.AreNotEqual(testJob1.GetHashCode(), testJob2.GetHashCode(), "GetHashCode output test");
         }
 
-        TODO: Task 3: Remove this line to uncomment the tests */
+        //TODO: Task 3: Remove this line to uncomment the tests */
     }
 }
 
