@@ -55,11 +55,11 @@ namespace TechJobsOOAutoGraded6
 
         public override string ToString()
         {
-            string idString = $"\nID: {Id}\n";
-            string nameString = $"\nName: {Name}\n";
-            string employerString = $"\nEmployer: {(EmployerName?.Value == "" ? "Data not available" : EmployerName?.Value)}\n";
-            string locationString = $"\nLocation: {(EmployerLocation?.Value == "" ? "Data not available" : EmployerLocation?.Value)}\n";
-            string positionString = $"\nPosition Type: {(JobType?.Value == "" ? "Data not available" : JobType?.Value)}\n";
+            string idString = $"\nID: {Id}";
+            string nameString = $"\nName: {Name}";
+            string employerString = $"\nEmployer: {(EmployerName?.Value == "" ? "Data not available" : EmployerName?.Value)}";
+            string locationString = $"\nLocation: {(EmployerLocation?.Value == "" ? "Data not available" : EmployerLocation?.Value)}";
+            string positionString = $"\nPosition Type: {(JobType?.Value == "" ? "Data not available" : JobType?.Value)}";
             string coreString = $"\nCore Competency: {(JobCoreCompetency?.Value == "" ? "Data not available" : JobCoreCompetency?.Value)}\n";
 
             return idString + nameString + employerString + locationString + positionString + coreString;
